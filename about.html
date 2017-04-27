@@ -28,7 +28,7 @@
 		<nav class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-header navbar-left">
-					<h1><a href="index.html">Nikasala Interiorss <span>Modern Designing Lights</span></a></h1>
+					<h1><a href="index.html">Nikasala Interiorss <span>Modern Designing Giants</span></a></h1>
 				</div>
 				<!-- navigation --> 
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -74,14 +74,37 @@
 		</div>
 	</div>
 	<!-- about -->
+<?php
+
+	include('connection.php');
+$connection = new createConnection(); 			//created a new object
+$connection_ref = $connection->connectToDatabase();
+
+
+
+$sql="select * from content_edit";
+//$result = mysqli_query($sql,$connection_ref);
+//$row = mysqli_fetch_assoc($result);
+
+
+
+?>
+
+
+
 	<div class="about">
 		<div class="container">
 			<h3 class="w3ls-title1">About <span>Us</span></h3>
 			<div class="about-agileinfo w3layouts">
 				<div class="col-md-8 about-wthree-grids grid-top">
-					<h4>Blanditiis praesentium deleniti atque corrupti quos </h4>
-					<p class="top">Gnissimos voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi. atque corrupti quos dolores et quas molestias excepturi sint occaecat officia deserunt mollitia laborum et dolorum fuga</p>
-					<p>Dignissimos at vero eos et accusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecat officia deserunt mollitia laborum et dolorum fuga. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecat atque corrupti quos dolores et quas molestias excepturi sint occaecat officia deserunt mollitia laborum et dolorum </p>		
+					<?php
+								if ($result=mysqli_query($connection_ref,$sql))
+								{
+								 while ($row=mysqli_fetch_row($result))
+									echo $row[4];
+								 }
+
+								 ?>
 					<div class="about-w3agilerow">
 						<div class="col-md-4 about-w3imgs">
 							<img src="images/img2.jpg" alt="" class="img-responsive zoom-img"/>
@@ -103,7 +126,7 @@
 						<div class="time-bottom">
 							<h5>Mon-Fri:10am-9pm </h5>
 							<h5>Sat-Sun:By Special Appointment</h5>
-							<p>Dignissimos at vero eos et accusamus et iusto odio ducimus qui accusamus et. </p>
+							<p>We are available at anytime if you need us with you </p>
 						</div>
 					</div>
 					<div class="testi">
@@ -258,26 +281,16 @@
 			<h5>We provide a wide range of services </h5>
 			<div class="servcs-info">
 				<div class="col-md-6 sevcs-grids">
-					<h4><span>01. </span>VESTIBULUM ANTE IPSUM IN</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nibh quis quam faucibus lacinia. Vestibulum ut elementum dolor. Suspendisse non risus pulvinar, viverra velit eget, consequat lorem.</p>			
+					<h4><span>01. </span>Construction Services</h4>
+					<p>If you are in need of building your home you just need to call us. We take care of everything after that and you just have to sit back and relax</p>			
 				</div>
 				<div class="col-md-6 sevcs-grids"> 
-					<h4><span>02. </span>DONEC MATTIS LECTUSNEC</h4>
-					<p>Curabitur nec nibh quis quam faucibus lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut elementum dolor. Suspendisse non risus pulvinar, viverra velit eget, consequat lorem.</p>			
+					<h4><span>02. </span>Interior Design</h4>
+					<p>We have the best available house designers joined hands with us and we will provide you with the best available designs for you to choose from</p>			
 				</div>
 				<div class="clearfix"> </div>
 			</div>
-			<div class="servcs-info">
-				<div class="col-md-6 sevcs-grids"> 
-					<h4><span>01. </span>ALIQUAM PORTTITOR</h4>
-					<p>Vestibulum ut elementum dolor. Suspendisse non risus pulvinar, viverra velit eget, consequat lorem.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nibh quis quam faucibus lacinia.</p>			
-				</div>
-				<div class="col-md-6 sevcs-grids"> 
-					<h4><span>02. </span>MORBI ACCUMSAN NON SCELERISQUE</h4>
-					<p>Suspendisse non risus pulvinar, viverra velit eget consequat lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nibh quis quam faucibus lacinia. Vestibulum ut elementum dolor.</p>			
-				</div>
-				<div class="clearfix"> </div>
-			</div>
+			
 		</div>
 	</div>
 	<!-- //about-services -->
@@ -307,7 +320,7 @@
 							<span class="glyphicon glyphicon-send" aria-hidden="true"></span>
 						</div>
 						<div class="col-xs-10 contact-grdr">
-							<p>345 Spruce Street, London.</p>
+							<p>168/2,Maththegoda,Colombo</p>
 						</div>
 						<div class="clearfix"> </div>
 					</div>

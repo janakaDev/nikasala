@@ -2,11 +2,21 @@
 
 class createConnection 				//create a class for make connection
 {
-    var $host="localhost";
-    var $username="root";    			// specify the sever details for mysql
+   /* var $host="localhost";
+    var $username="wuqehqcuch";             // specify the sever details for mysql
+    Var $password="db123456";
+    var $database="wuqehqcuch";*/
+
+     var $host="localhost";
+    var $username="kvktyfgaxa";             // specify the sever details for mysql
+    Var $password="kvktyfgaxa";
+    var $database="Nqcw8v37rp";
+
+   /* var $host="localhost";
+    var $username="root";             // specify the sever details for mysql
     Var $password="";
     var $database="iadmin";
-
+*/
     var $myconn;
 
    
@@ -52,6 +62,39 @@ class createConnection 				//create a class for make connection
 
 						//        echo "Connection closed";
     }
+
+
+   /* function update2($table,$data,$conditions){
+        if(!empty($data) && is_array($data)){
+            $colvalSet = '';
+            $whereSql = '';
+            $i = 0;
+            if(!array_key_exists('modified',$data)){
+                $data['modified'] = date("Y-m-d H:i:s");
+            }
+            foreach($data as $key=>$val){
+                $pre = ($i > 0)?', ':'';
+                $colvalSet .= $pre.$key."='".$val."'";
+                $i++;
+            }
+            if(!empty($conditions)&& is_array($conditions)){
+                $whereSql .= ' WHERE ';
+                $i = 0;
+                foreach($conditions as $key => $value){
+                    $pre = ($i > 0)?' AND ':'';
+                    $whereSql .= $pre.$key." = '".$value."'";
+                    $i++;
+                }
+            }
+            $query = "UPDATE ".$table." SET ".$colvalSet.$whereSql;
+            $update = $this->db->query($query);
+            return $update?$this->db->affected_rows:false;
+        }else{
+            return false;
+        }
+    }*/
+
+
 
 }
 

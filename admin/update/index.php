@@ -107,198 +107,88 @@ table a:hover{background:aqua;text-decoration:none;}
 						$connection_ref = $connection->connectToDatabase();
 						// $connection->selectDatabase();				//selecting db
 						$selected_table_name=$_SESSION["tblname"];
-						if($selected_table_name="mapdata"){
+						$sql="select * from content_edit";
+						$result=mysqli_query($connection_ref,$sql);
 
-	$sql1="select * from mapdata";
-
-	$result=mysqli_query($connection_ref,$sql1);
-
-
-	$i=0;
-	while($row1=mysqli_fetch_array($result))
-	{ 
-		//echo "<td><a class='btn btn-danger' href='.//'".$row['image_path']."'>download</a></td>";
-		//echo $row1["image_path"];
-		//echo "\n";
-	}
-	//$row1=mysqli_fetch_array($result);
-	//	echo $row1[6];
-	
-}
 					?><br>
-					<button class="btn btn-success disabled text-uppercase"><span class="glyphicon glyphicon-folder-open"></span> <?php echo $selected_table_name;?></button>
-					<a href="../update/index.php" class="btn btn-danger">Edit Site Display Content</a>
+					
 				</div>
-				<p>
+
+
+	<table class="table table-bordered">
+				
+					<tr>
+						<th>name</th>
+						<th>view</th>
+						<th>edit</th>
+					</tr>
+
 					<?php
-						if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
-						$start_from = ($page-1) * $num_rec_per_page; 
-						$sql = "SELECT * FROM ".$selected_table_name." LIMIT $start_from, $num_rec_per_page"; 
-						$rs_result = mysqli_query ($connection_ref, $sql); //run the query
-						if($rs_result === FALSE) 
-						{ 
-    							die(mysqli_error()); // TODO: better error handling
-						}
-						$num_fields=mysqli_num_fields($rs_result);
-						if(isset($_GET['id'])) 
+						while($row=mysqli_fetch_array($result))
 						{
-   							@mysqli_query($connection_ref, "DELETE FROM ".$selected_table_name." WHERE id = '".$_GET['id']."'");
-   							header("location:index.php");
-   							exit();
-						}
-					?> 
-					<div class="progress pull-right">
-						<>
-						<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-							<a href="../cancel.php" style="color:#fff;">CANCEL</a>
-						</div>
-					</div>
-					<div class="panel panel-info">
-						<div class="panel-body">
-							<div class="progress">
-  								<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
-    									<span class="sr-only">STATUS</span>
-  								</div>
-							</div>
-							
+					?>
+					<tr>
+						<td></td>
+						<td><?php echo $row["0"];?></td>
+						<a href="edit.php" class="btn btn-danger">edit</a>
+						<td>
+						<a href="edit.php" class="btn btn-danger">edit</a>
+						</td>
+
+
+					</tr>
 
 
 
-							<div class="btn-group" role="group" style="float:right;" aria-label="...">
-								<a href="../create" class="btn btn-primary">ADD</a>
-							</div>
-<a href="" class="btn btn-primary">____</a>
+					 <?php  
+                               }  
+                               ?> 
+
+				</table>
 
 
+						<!-- add data moda; -->
 
+						
+									
+				<div id="data_Modal" class="modal fade">  
+			      <div class="modal-dialog">  
+			           <div class="modal-content">  
+			                <div class="modal-header">  
+			                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
+			                     <h4 class="modal-title">PHP Ajax Update MySQL Data Through Bootstrap Modal</h4>  
+			                </div>  
+			                <div class="modal-body">  
+			                     <form method="post" id="insert_form">  
+			                        <label>Enter dec2</label>
+			                        <input type="text" name="description1" id="description1" placeholder="dec2"> </input>
 
+			                         <label>Enter dec3</label>
+			                        <input type="text" name="description2" id="description2" placeholder="dec3"> </input>
 
+			                         <label>Enter dec4</label>
+			                        <input type="text" name="description3" id="description3" placeholder="dec4"> </input>
 
-<div class="table-responsive">
+			                         <label>Enter dec6</label>
+			                        <input type="text" name="description4" id="description4" placeholder="de55"> </input>
 
-							<table class="table table-striped colo-md-9">
-							<thead>
-								<tr>
-									<?php
-										$width=100/$num_fields;
-										// for($y=0;$y<$num_fields;$y++)
-										// {
-											 $finfo = mysqli_fetch_fields($rs_result);
-											 foreach($finfo as $v){
-											 	$image_url = $v=="imageUrl"? true:false;
-												echo "<th style='width:".$width."%'>".$v->name."</th>";
-											 }
-											 
-											// echo "<th style='width:".$width."%'>".mysql_field_name($rs_result, $y)."</th>";
-										// }
-										echo "<th style='width:10%;'>action</th></tr></thead><tbody>";
+			                         <label>Enter dec7</label>
+			                        <input type="text" name="our_code1" id="our_code1" placeholder="dec7"> </input>
 
-while($row=mysqli_fetch_array($rs_result)) { 
-//echo "<b color='red'>".$row[0]."</b>";
-?> 
-            <tr>
-			<?php
-			for($l=0;$l<$num_fields;$l++)
-			{
-			?>
-            		<td >
-					<a data-toggle="modal" data-target="#myModal<?php echo $row[0];?>">
-						<?php if($image_url)
-											{
-											echo "<img src='".$row[$l]."' width='100px' height='100px'/>";												
-											}
-											else
-											{
-												echo $row[$l];
-											}
+			                         <label>Enter dec8</label>
+			                        <input type="text" name="our_code2" id="our_code2" placeholder="dec8"> </input>
 
-?>
-					</a>
-				</td>
-<?php
+			                         <label>Enter dec9</label>
+			                        <input type="text" name="about_us" id="about_us" placeholder="dec9"> </input>
 
-
-
-if($l== $num_fields-1){
-
-echo "<td><a class='btn btn-danger' href='index.php?id=".$row[0]."'>delete</a></td>";
-echo "<td><a class='btn btn-danger' href='../../".$row["image_path"]."'>download</a></td>";
-
-}
-
-
-?>				
-				<!-- Modal -->
-  				<div class="modal fade" id="myModal<?php echo $row[0];?>" role="dialog">
-    					<div class="modal-dialog modal-sm">
-      					<div class="modal-content">
-        						<div class="modal-body">
-		<?php //echo $row[$l]." ".$row[0];?>
-	      <p>
-		<form name='myForm'>
-		<input type="hidden" id="imp_ref_len" value="<?php echo $num_fields;?>">
-		<?php
-
-			for($w=0;$w<$num_fields;$w++)
-			{
-if($w==0)
-{
-continue;
-}
-				echo "<span class='glyphicon glyphicon-book'></span>";
-				echo "<textarea class='form-control nonepty'  id=".$w."  onchange='ajaxFunction(".$row[0].",this.value,".$w.");' >".$row[$l+$w]."</textarea>";	
-echo "		<div id='ajaxDiv'></div>";
-		
-			}
-
-		?>
-		</form>
-	</p>
-        </div>
-        <div class="modal-footer">
-
-          <a type="button" class="btn btn-danger" href="index.php">Update</a>
-        </div>
-      </div>
-    </div>
-  </div>
-			<?php
-			}
-			?>
-            </tr>
-<?php 
-}; 
-?> 
-
-
-
-</tbody>
-							</table>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			                     </form>  
+			                    </div> 
+			                </div>  
+			                <div class="modal-footer">  
+			                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+			                </div>  
+			           </div>  
+			      </div>
 
 
 							<?php 
@@ -323,13 +213,37 @@ echo "		<div id='ajaxDiv'></div>";
 				</p>
 			</div>
 		</div>
-	</div>
+	</div></
 
 	<script src="../assets/js/bootstrap.js"></script>
 <script>
 $(document).ready(function() {
     $("#MyModal").modal();
   });
+
+</script>
+<script type="text/javascript">
+	
+      $(document).on('click', '.edit_data', function(){  
+           var employee_id = $(this).attr("index");  
+           $.ajax({  
+                url:"fetch.php",  
+                method:"POST",  
+                data:{idx:idx},  
+                dataType:"json",  
+                success:function(data){  
+                     $('#description1').val(data.description1);  
+                     $('#description2').val(data.description2);  
+                     $('#description4').val(data.description3);  
+                     $('#description4').val(data.description4);  
+                     $('#our_code1').val(data.our_code1);  
+                     $('#our_code2').val(data.our_code2);  
+                     $('#about_us').val(data.obout_us);  
+                     $('#insert').val("Update");  
+                     $('#add_data_Modal').modal('show');  
+                }  
+           });  
+      });
 </script>
 </body>
 </html>

@@ -3,17 +3,6 @@ include("connection.php");
 $connection = new createConnection(); 			//created a new object
 $connection_ref = $connection->connectToDatabase();
 
-//$handle = "janak";
-$name=$_POST['name'];
-//$name=$_POST['name'];
-$email=$_POST['email'];
-$telephone=$_POST['telephone'];
-$description=$_POST['description'];
-$rooms=$_POST['rooms'];
-$address=$_POST['address'];
-
-
-
 	$pic =$_FILES['pic']['name'];
     $pic_loc = $_FILES['pic']['tmp_name'];
 	$folder="uploads/";
@@ -26,7 +15,7 @@ $address=$_POST['address'];
 		?><script>alert('error while uploading file');</script><?php
 	}
 
-$handle = "uploads/".$pic;
+
 
 $handle = "uploads/".$pic;
 //$handle = "janak";
@@ -35,12 +24,12 @@ $name=$_POST['name'];
 $email=$_POST['email'];
 $telephone=$_POST['telephone'];
 $description=$_POST['description'];
-$rooms=$_POST['rooms'];
+//$rooms=$_POST['rooms'];
 $address=$_POST['address'];
 
 
 
-$sql = "INSERT INTO mapdata(Full_name,Address,Description,email,telephone,image_path,rooms) VALUES ('$name', '$address', '$description','$email','$telephone','$handle','$rooms');";
+$sql = "INSERT INTO test(Full_name,Address,Description,email,telephone,image_path) VALUES ('$name', '$address', '$description','$email','$telephone','$handle');";
 
 if(mysqli_query ($connection_ref, $sql)){
    echo "<script>

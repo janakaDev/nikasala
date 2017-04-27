@@ -1,3 +1,5 @@
+
+
 /*
 Author lakshmaji<lakshmajee88@gmail.com>
 version 1.0.0
@@ -87,5 +89,15 @@ table {
 	background:rgba(55, 71, 251, 0.63);
 	box-shadow: 0 0 30px rgba(0,0,0,0.9);
 	background: url(../img/a.jpg);
+
+
+
+}
+
+.effect6{
+	color:rgba(0,0,0, 0) !important; 
+	transition: all .3s ease;
+	text-shadow:0 0 0  #fff, 0 -45px 0 #000 ;
+	overflow: hidden;
 }
 		

@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,12 +31,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- //web fonts -->
 </head>
 <body>
+
+
+
+
+
+
+
 	<!-- header -->
 	<div class="header">
 		<nav class="navbar navbar-default">
 			<div class="container">
 				<div class="navbar-header navbar-left">
-					<h1><a href="index.html">Nikasala Interiorss <span>Modern Designing Lights</span></a></h1>
+					<h1><a href="index.html">Nikasala Interiors <span>Modern Designing Giants</span></a></h1>
 				</div>
 				<!-- navigation --> 
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -67,6 +75,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							
 							<li><a href="gallery.html" class="link link--yaku"><span>G</span><span>A</span><span>L</span><span>L</span><span>E</span><span>R</span><span>Y</span></a></li>
 							<li><a href="contact.html" class="link link--yaku"><span>C</span><span>O</span><span>N</span><span>T</span><span>A</span><span>C</span><span>T</span> <span>U</span><span>S</span></a></li>
+							<li><a href="order.html" class="link link--yaku"><span>O</span><span>R</span><span>D</span><span>E</span><span>R</span></a></li>
 						</ul>		
 						<div class="clearfix"> </div>
 					</div><!-- //navigation -->
@@ -85,6 +94,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <p>Some text in the Modal..</p>
   </div>
 
+<?php
+
+	include('connection.php');
+$connection = new createConnection(); 			//created a new object
+$connection_ref = $connection->connectToDatabase();
+
+
+
+$sql="select * from content_edit";
+//$result = mysqli_query($sql,$connection_ref);
+//$row = mysqli_fetch_assoc($result);
+
+
+
+?>
+
+
+
 </div>
 	<div class="banner"> 
 		<section class="slider">
@@ -94,8 +121,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="banner-img1">
 							<div class="banner-w3text">
 								<h3 style="color: black;">We Offer Classic Designs</h3>
-								<p style="color: black;">We offer vintage design sets for you to choose to build your home and we care about your from begining to the end</p>								
-								<button id="modal" class="btn btn-success btn-lg">Build Your Own Home with Us</button>
+								<p style="color: black;"><?php
+								if ($result=mysqli_query($connection_ref,$sql))
+								{
+								 while ($row=mysqli_fetch_row($result))
+									echo $row[1];
+								 }
+
+								 ?></p>								
+								<div class="w3ls-more">
+									<a href="order.html" class="effect6" data-toggle="modal" data-target="#myModal"><span>Order a package</span></a>
+								</div>
 							</div>
 						</div>
 					</li>
@@ -103,8 +139,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="banner-img2">
 							<div class="banner-w3text">
 								<h3>Trusted Service</h3>
-								<p>You just have to sit back and relax while we build your dream home in the exact way you need.</p>								
-								<button id="modal" class="btn btn-danger btn-lg">Build Your Own Home with Us</button>
+								<p><?php
+								if ($result=mysqli_query($connection_ref,$sql))
+								{
+								 while ($row=mysqli_fetch_row($result))
+									echo $row[1];
+								 }
+
+								 ?></p>					
+								<div class="w3ls-more">
+									<a href="order.html" class="effect6" data-toggle="modal" data-target="#myModal"><span>Order a package</span></a>
+								</div>
 							</div>
 						</div>
 					</li>
@@ -135,7 +180,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div> 
 				<div class="modal-body">
 					<img src="images/img18.jpg" alt=""> 
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum iaculis enim, non convallis felis mattis at. Donec fringilla lacus eu pretium rutrum. Cras aliquet congue ullamcorper. Etiam mattis eros eu ullamcorper volutpat. Proin ut dui a urna efficitur varius. uisque molestie cursus mi et congue consectetur adipiscing elit cras rutrum iaculis enim, Lorem ipsum dolor sit amet, non convallis felis mattis at. Maecenas sodales tortor ac ligula ultrices dictum et quis urna. Etiam pulvinar metus neque, eget porttitor massa vulputate. </p>
+					<?php
+								if ($result=mysqli_query($connection_ref,$sql))
+								{
+								 while ($row=mysqli_fetch_row($result))
+									echo $row[4];
+								 }
+
+								 ?>
 				</div> 
 			</div>
 		</div>
@@ -145,7 +197,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="w3-agile-text">
 		<div class="container"> 
 			<h2>Home is the place where you feel at home and are treated well 
-			<p>You can have more than one home. You can carry your roots with you, and decide where they grow.</p>
+	
 		</div>
 	</div>
 	<!-- //banner-bottom -->
@@ -155,8 +207,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="col-md-4 feature-grids">
 				<h3 class="w3ltitle">WHAT <span>WE ARE</span></h3>
-				<p>We are one of the best designer and construction companies which are currenly available in Sri Lanka. Our Uniqueness is that we nevel let our customer down and we do our job and we guarantee we are the best in the business at he moment</p>
-				<p>Our mission is to satisfy our customers and serve them in the exact way they need us to do. We ara not just buiding a house for you, but we will make sure that you will feel satisfied in what we live and we make you feel like home.</p>
+				<?php
+								if ($result=mysqli_query($connection_ref,$sql))
+								{
+								 while ($row=mysqli_fetch_row($result))
+									echo $row[5];
+								 }
+
+								 ?>
 				<div class="w3ls-more">
 					<a href="#" class="effect6" data-toggle="modal" data-target="#myModal"><span>Order a package</span></a>
 				</div>
@@ -172,8 +230,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="pince-right">
 						<h4>Customer is the god.</h4>
-						<p>We will give our main priority to aour customers and they will feel more important with us.</p>
-					</div>
+						<p><?php
+								if ($result=mysqli_query($connection_ref,$sql))
+								{
+								 while ($row=mysqli_fetch_row($result))
+									echo $row[6];
+								 }
+
+								 ?></p>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="w3ls-pince">
@@ -182,7 +246,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<div class="pince-right">
 						<h4>Well done is better than well said </h4>
-						<p>Our target is to prove ourselves by doing what we do to the best capacity that we can.</p>
+						<p><?php
+								if ($result=mysqli_query($connection_ref,$sql))
+								{
+								 while ($row=mysqli_fetch_row($result))
+									echo $row[6];
+								 }
+
+								 ?></p>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -208,7 +279,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="col-md-3 project-right w3layouts">
 				<h3 class="w3ltitle">New<span> Designs</span></h3>
-				<p>We have a set of newly designed templates that we recently designed and you can choose any one of them.</p>
+				<p>We have a set of newly designed templates we recently designed. You can choose any one of them.Thes are simply the best designs</p>
 			</div>
 			<div class="col-md-9 project-left">
 				<!-- flex-slider -->

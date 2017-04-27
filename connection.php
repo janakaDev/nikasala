@@ -3,9 +3,14 @@
 class createConnection 				//create a class for make connection
 {
     var $host="localhost";
-    var $username="root";    			// specify the sever details for mysql
+    var $username="kvktyfgaxa";             // specify the sever details for mysql
+    Var $password="kvktyfgaxa";
+    var $database="Nqcw8v37rp";
+
+   /* var $host="localhost";
+    var $username="root";             // specify the sever details for mysql
     Var $password="";
-    var $database="iadmin";
+    var $database="iadmin";*/
 
     var $myconn;
 

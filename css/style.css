@@ -1845,8 +1845,8 @@ p.serw3-agiletext {
     font-size: 1.5em;
     color: #FFFFFF;
     position: absolute;
-    top: 40%;
-    left:20%;
+    top: 2%;
+    left:25%;
 	transform: rotate(-45deg)scale(0);
     -webkit-transform: rotate(-45deg)scale(0);
 	-o-transform: rotate(-45deg)scale(0);

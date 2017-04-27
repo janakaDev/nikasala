@@ -17,7 +17,7 @@
 										<h4>
 											ADMIN i
 											<br>
-											<small>Gene<span class=""></span></small>
+											
 										</h4>
 									</a>
 								</li>

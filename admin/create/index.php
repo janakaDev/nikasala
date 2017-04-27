@@ -104,19 +104,7 @@ include('../session.php');
 						</div>
 						<div class="col-lg-2">
 						</div>
-						<div class="col-lg-5">
-							<div class="panel panel-info">
-								<div class="panel-body">
-								<h5 class="text-uppercase">instructions:</h5>
-									<div class="list-group text-capitalize">
-  										<li href="#" class="list-group-item ">Dapibus ac facilisis in</li>
-  										<li href="#" class="list-group-item ">Cras sit amet nibh libero</li>
-  										<li href="#" class="list-group-item ">Porta ac consectetur ac</li>
-  										<li href="#" class="list-group-item ">Vestibulum at eros</li>
-									</div>
-								</div>
-							</div>
-						</div>
+						
 					</div><!--form div-->
 				</p>
 			</div>
