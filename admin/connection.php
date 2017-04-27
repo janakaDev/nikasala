@@ -7,10 +7,10 @@ class createConnection 				//create a class for make connection
     Var $password="db123456";
     var $database="wuqehqcuch";*/
 
-     var $host="localhost";
-    var $username="kvktyfgaxa";             // specify the sever details for mysql
-    Var $password="kvktyfgaxa";
-    var $database="Nqcw8v37rp";
+    var $host="localhost";
+    var $username="exjnketxsg";             // specify the sever details for mysql
+    Var $password="M7t7adhABZ";
+    var $database="exjnketxsg";
 
    /* var $host="localhost";
     var $username="root";             // specify the sever details for mysql
